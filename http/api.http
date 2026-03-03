@@ -10,22 +10,24 @@ POST {{BASE_URL}}/register
 Content-Type: application/json
 
 {
-  "email": "aa2@gmail.com",
+  "email": "aa3@gmail.com",
   "password": "123456"
 }
 
 
 ### Login POST /login
+# @name login
 POST {{BASE_URL}}/login
 Content-Type: application/json
 
 {
-  "email": "aa2@gmail.com",
+  "email": "aa3@gmail.com",
   "password": "123456"
 }
 
 
 ### Me GET /me
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NzIxODM2NDQsImV4cCI6MTc3MjE4NzI0NH0.gngVBInTTJa3bINYXsSQPgW2BhltHYNKrsTYD_zylRo
+@token = {{login.response.body.accessToken}}
+# @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NzIxODM2NDQsImV4cCI6MTc3MjE4NzI0NH0.gngVBInTTJa3bINYXsSQPgW2BhltHYNKrsTYD_zylRo
 GET {{BASE_URL}}/me
-# Authorization: Bearer {{token}}
+Authorization: Bearer {{token}}
